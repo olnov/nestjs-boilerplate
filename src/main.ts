@@ -14,8 +14,6 @@ async function bootstrap() {
     { bufferLogs: true },
   );
 
-  console.log(`NODE_ENV ${process.env.NODE_ENV}`);
-
   const config = new DocumentBuilder()
     .setTitle('MyApp')
     .setDescription('MyApp Description')
