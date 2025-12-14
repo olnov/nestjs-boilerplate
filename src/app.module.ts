@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { LoggerModule } from 'pino-nestjs';
+import { LoggerModule } from 'nestjs-pino';
 import pino from 'pino';
 import { ExampleModule } from './modules/example/example.module';
 import { ConfigModule } from '@nestjs/config';
