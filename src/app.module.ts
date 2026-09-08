@@ -3,7 +3,6 @@ import { LoggerModule } from 'nestjs-pino';
 import pino from 'pino';
 import { ExampleModule } from './modules/example/example.module';
 import { ConfigModule } from '@nestjs/config';
-import { ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
   imports: [
@@ -14,18 +13,6 @@ import { ThrottlerModule } from '@nestjs/throttler';
           sync: false,
         }),
       },
-    }),
-    ThrottlerModule.forRoot({
-      throttlers: [
-        {
-          ttl: process.env.THROTTLE_TTL
-            ? parseInt(process.env.THROTTLE_TTL, 10)
-            : 60000,
-          limit: process.env.THROTTLE_LIMIT
-            ? parseInt(process.env.THROTTLE_LIMIT, 10)
-            : 100,
-        },
-      ],
     }),
     ConfigModule.forRoot(),
   ],

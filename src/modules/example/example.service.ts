@@ -4,6 +4,6 @@ import { Injectable } from '@nestjs/common';
 export class ExampleService {
   // Example of a synchronous function
   printExample() {
-    return 'This is an example message from controller';
+    return 'This is an example message from controller that talked to service';
   }
 }
