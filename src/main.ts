@@ -6,6 +6,7 @@ import {
 } from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger } from 'nestjs-pino';
+import rateLimit from '@fastify/rate-limit';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -14,6 +15,9 @@ async function bootstrap() {
     { bufferLogs: true },
   );
 
+  await app.register(rateLimit, {
+    global: false,
+  })
   const config = new DocumentBuilder()
     .setTitle('MyApp')
     .setDescription('MyApp Description')
